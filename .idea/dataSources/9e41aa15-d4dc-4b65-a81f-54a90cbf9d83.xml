@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Auktion@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="auktion">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="aktion"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="inlamning1"/>
+    <schema id="6" parent="1" name="inlamning12"/>
+    <schema id="7" parent="1" name="inlamning1_2"/>
+    <schema id="8" parent="1" name="mysql"/>
+    <schema id="9" parent="1" name="performance_schema"/>
+    <schema id="10" parent="1" name="sakila"/>
+    <schema id="11" parent="1" name="skola"/>
+    <schema id="12" parent="1" name="sys"/>
+    <schema id="13" parent="1" name="world"/>
+    <table id="14" parent="2" name="auktion"/>
+    <table id="15" parent="2" name="auktionsprodukt"/>
+    <table id="16" parent="2" name="bud"/>
+    <table id="17" parent="2" name="kund"/>
+    <table id="18" parent="2" name="leverantör"/>
+    <table id="19" parent="2" name="produkt"/>
+    <table id="20" parent="2" name="produktleverantör"/>
+    <column id="21" parent="14" name="AuktionId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="22" parent="14" name="StartDatum">
+      <Position>2</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="14" name="SlutDatum">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="24" parent="14" name="PRIMARY">
+      <ColNames>AuktionId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="25" parent="15" name="AuktionId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="15" name="Produktnummer">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="27" parent="15" name="Produktnummer">
+      <ColNames>Produktnummer</ColNames>
+    </index>
+    <key id="28" parent="15" name="PRIMARY">
+      <ColNames>AuktionId
+Produktnummer</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="29" parent="15" name="auktionsprodukt_ibfk_1">
+      <ColNames>AuktionId</ColNames>
+      <RefSchemaName>auktion</RefSchemaName>
+      <RefTableName>auktion</RefTableName>
+      <RefColNames>AuktionId</RefColNames>
+      <OnUpdate>update</OnUpdate>
+      <OnDelete>delete</OnDelete>
+    </foreign-key>
+    <foreign-key id="30" parent="15" name="auktionsprodukt_ibfk_2">
+      <ColNames>Produktnummer</ColNames>
+      <RefSchemaName>auktion</RefSchemaName>
+      <RefTableName>produkt</RefTableName>
+      <RefColNames>Produktnummer</RefColNames>
+      <OnUpdate>update</OnUpdate>
+      <OnDelete>delete</OnDelete>
+    </foreign-key>
+    <column id="31" parent="16" name="AuktionId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="16" name="KundNummer">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="16" name="BudDatum">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="34" parent="16" name="Tid">
+      <Position>4</Position>
+      <DataType>time|0</DataType>
+    </column>
+    <column id="35" parent="16" name="Budsumma">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="36" parent="16" name="KundNummer">
+      <ColNames>KundNummer</ColNames>
+    </index>
+    <key id="37" parent="16" name="PRIMARY">
+      <ColNames>AuktionId
+KundNummer</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="38" parent="16" name="bud_ibfk_1">
+      <ColNames>AuktionId</ColNames>
+      <RefSchemaName>auktion</RefSchemaName>
+      <RefTableName>auktion</RefTableName>
+      <RefColNames>AuktionId</RefColNames>
+      <OnUpdate>update</OnUpdate>
+      <OnDelete>delete</OnDelete>
+    </foreign-key>
+    <foreign-key id="39" parent="16" name="bud_ibfk_2">
+      <ColNames>KundNummer</ColNames>
+      <RefSchemaName>auktion</RefSchemaName>
+      <RefTableName>kund</RefTableName>
+      <RefColNames>KundNummer</RefColNames>
+      <OnUpdate>update</OnUpdate>
+      <OnDelete>delete</OnDelete>
+    </foreign-key>
+    <column id="40" parent="17" name="KundNummer">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="41" parent="17" name="Efternamn">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="17" name="Gata">
+      <Position>4</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="17" name="Ort">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="17" name="Epost">
+      <Position>6</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="17" name="Fornamn">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="46" parent="17" name="IX_Kund_Efternamn">
+      <ColNames>Efternamn</ColNames>
+    </index>
+    <key id="47" parent="17" name="PRIMARY">
+      <ColNames>KundNummer</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="48" parent="18" name="LeverantörId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="49" parent="18" name="Namn">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="18" name="Epost">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="18" name="Telefonnummer">
+      <Position>4</Position>
+      <DataType>char(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="52" parent="18" name="IX_Leverantör_Namn">
+      <ColNames>Namn</ColNames>
+    </index>
+    <key id="53" parent="18" name="PRIMARY">
+      <ColNames>LeverantörId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="54" parent="19" name="Produktnummer">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="55" parent="19" name="Namn">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="19" name="Provision">
+      <Position>3</Position>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="19" name="UtgångsPris">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="19" name="AcceptPris">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="19" name="Beskrivning">
+      <Position>6</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <index id="60" parent="19" name="IX_Produkt_Namn">
+      <ColNames>Namn</ColNames>
+    </index>
+    <key id="61" parent="19" name="PRIMARY">
+      <ColNames>Produktnummer</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="62" parent="20" name="LeverantörId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="63" parent="20" name="Produktnummer">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="64" parent="20" name="Produktnummer">
+      <ColNames>Produktnummer</ColNames>
+    </index>
+    <key id="65" parent="20" name="PRIMARY">
+      <ColNames>LeverantörId
+Produktnummer</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="66" parent="20" name="produktleverantör_ibfk_1">
+      <ColNames>LeverantörId</ColNames>
+      <RefSchemaName>auktion</RefSchemaName>
+      <RefTableName>leverantör</RefTableName>
+      <RefColNames>LeverantörId</RefColNames>
+      <OnUpdate>update</OnUpdate>
+      <OnDelete>delete</OnDelete>
+    </foreign-key>
+    <foreign-key id="67" parent="20" name="produktleverantör_ibfk_2">
+      <ColNames>Produktnummer</ColNames>
+      <RefSchemaName>auktion</RefSchemaName>
+      <RefTableName>produkt</RefTableName>
+      <RefColNames>Produktnummer</RefColNames>
+      <OnUpdate>update</OnUpdate>
+      <OnDelete>delete</OnDelete>
+    </foreign-key>
+  </database-model>
+</dataSource>
